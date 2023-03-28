@@ -1,17 +1,69 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add `node(id: ID!) and `nodes(ids: [ID!]!)`
     include GraphQL::Types::Relay::HasNodeField
     include GraphQL::Types::Relay::HasNodesField
 
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :properties, [Types::PropertyType], null: false do
+      description "Returns a list of all properties"
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    def properties
+      Property.all
+    end
+
+    field :property, Types::PropertyType, null: true do
+      description "Returns a single property by ID"
+      argument :id, ID, required: true
+    end
+
+    def property(id:)
+      Property.find_by(id: id)
+    end
+
+    field :furnishings, [Types::FurnishingType], null: false do
+      description "Returns a list of all Furnishings"
+    end
+
+    def furnishings
+      Furnishing.all
+    end
+
+    field :furnishing, Types::FurnishingType, null: true do
+      description "Find a furnishing by ID"
+      argument :id, ID, required: true
+    end
+
+    def furnishing(id:)
+      furnishing = Furnishing.find_by(id: id)
+      if furnishing
+        {
+          furnishing: furnishing,
+          property_name: furnishing.property.property_name,
+          property_id: furnishing.property.id,
+        }
+      else
+        {
+          furnishing: nil,
+          property_name: nil,
+        }
+      end
+    end
+
+    field :valuations, [Types::ValuationType], null: false do
+      description "Returns a list of all valuations"
+    end
+
+    def valuations
+      Valuation.all
+    end
+
+    field :valuation, Types::ValuationType, null: true do
+      description "Returns a single valuation by ID"
+      argument :id, ID, required: true
+    end
+
+    def valuation(id:)
+      Valuation.find_by(id: id)
     end
   end
 end
