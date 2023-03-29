@@ -7,7 +7,6 @@ module Types
     field :valuation_type, String
     field :value, Float
     field :valuation_date, GraphQL::Types::ISO8601Date
-    field :property_name, String
     field :created_at, GraphQL::Types::ISO8601DateTime, null: false
     field :updated_at, GraphQL::Types::ISO8601DateTime, null: false
     field :property, Types::PropertyType, null: false # new field for property association
