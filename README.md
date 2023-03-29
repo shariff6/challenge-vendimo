@@ -36,5 +36,5 @@ You should now be able to access the GraphQL API at http://localhost:3000/graphq
 
 ### This Postman collection has all the available requests
 
-[PostMan Collection](https://www.postman.com/winter-zodiac-413899/workspace/my-work/collection/17140999-7a95c714-268e-4216-b13d-44b23d38703d?ctx=documentation)
+[PostMan Collection](https://api.postman.com/collections/9007693-6ec66c35-b310-4ff5-8084-54e397a436f3?access_key=PMAT-01GWQ1FEB8F5NG0H96KRV0S3Q8)
 
