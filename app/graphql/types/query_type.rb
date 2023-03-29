@@ -35,18 +35,6 @@ module Types
 
     def furnishing(id:)
       furnishing = Furnishing.find_by(id: id)
-      if furnishing
-        {
-          furnishing: furnishing,
-          property_name: furnishing.property.property_name,
-          property_id: furnishing.property.id,
-        }
-      else
-        {
-          furnishing: nil,
-          property_name: nil,
-        }
-      end
     end
 
     field :valuations, [Types::ValuationType], null: false do
@@ -54,7 +42,7 @@ module Types
     end
 
     def valuations
-      Valuation.all
+      valuations = Valuation.all
     end
 
     field :valuation, Types::ValuationType, null: true do
@@ -63,7 +51,7 @@ module Types
     end
 
     def valuation(id:)
-      Valuation.find_by(id: id)
+      valuation = Valuation.find_by(id: id)
     end
   end
 end
