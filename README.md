@@ -38,3 +38,8 @@ You should now be able to access the GraphQL API at http://localhost:3000/graphq
 
 [PostMan Collection](https://api.postman.com/collections/9007693-6ec66c35-b310-4ff5-8084-54e397a436f3?access_key=PMAT-01GWQ1FEB8F5NG0H96KRV0S3Q8)
 
+
+### Tests 
+
+To run tests run `rspec`
+
